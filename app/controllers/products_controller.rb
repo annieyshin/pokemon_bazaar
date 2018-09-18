@@ -3,6 +3,9 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @order_item = current_order.order_items.new
+    binding.pry
+    pokemon_object = Pokemonapi.new(4)
+    @pokemon = pokemon_object.get_pokemon()
   end
 
   def show

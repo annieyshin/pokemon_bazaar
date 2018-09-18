@@ -5,6 +5,7 @@
   </div>
   <hr>
   <h2>Products</h2>
+    <h2><%=@pokemon%>/h2>
 
    <% @products.each do |product| %>
     <p><%= product.name %> | <%= number_to_currency product.price %></p>

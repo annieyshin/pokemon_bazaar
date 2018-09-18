@@ -25,6 +25,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'rest-client'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'shoulda-matchers'
+  gem 'dotenv-rails'
 end
 
 group :development do
