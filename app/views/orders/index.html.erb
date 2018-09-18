@@ -1,0 +1,12 @@
+<% @orders.each do |order| %>
+  <p><%= order.name %> |
+  <%= form_for @order_item do |f| %>
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+    <hr>
+    <%= f.label :total_price %>
+    <%= f.number_field :total_price %>
+    <hr>
+    <%= f.submit "Add to order" %>
+  <% end %></p>
+<% end %>
