@@ -1,20 +1,21 @@
 <div class="container">
 
-<div class="jumbotron">
-  <h1>Pokemon Bazaar</h1>
-</div>
-<hr>
-<h2>Products</h2>
+  <div class="jumbotron">
+    <h1>Pokemon Bazaar</h1>
+  </div>
+  <hr>
+  <h2>Products</h2>
 
-<% @products.each do |product| %>
- <p><%= product.name %> | <%= number_to_currency product.price %>
- <%= form_for @order_item do |f| %>
-   <%= f.hidden_field :product_id, value: product.id %>
-   <%= f.number_field :quantity %>
-   <%= f.submit "Add to cart" %>
- <% end %></p>
-<% end %>
+   <% @products.each do |product| %>
+    <p><%= product.name %> | <%= number_to_currency product.price %></p>
+    <% byebug %>
+    <%= form_for @order_item do |f| %>
+      <%= f.hidden_field :product_id, value: product.id %>
+      <%= f.number_field :quantity %>
+      <%= f.submit "Add to cart" %>
+    <% end %></p>
+  <% end %>
 
-<p><%= link_to "Add a new product", new_product_path %></p>
+  <p><%= link_to "Add a new product", new_product_path %></p>
 
 </div>

@@ -7,7 +7,7 @@ class OrderItemsController < ApplicationController
     session[:order_id] = @order.id
     redirect_to products_path
   end
-  
+
   def destroy
     @order = current_order
     @item = @order.order_items.find(params[:id])
@@ -18,7 +18,7 @@ class OrderItemsController < ApplicationController
 
 private
 
-def item_params
-  params.require(:order_item).permit(:quantity, :product_id)
-end
+  def item_params
+    params.require(:order_item).permit(:quantity, :product_id)
+  end
 end
