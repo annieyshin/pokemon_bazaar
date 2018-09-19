@@ -4,10 +4,13 @@
     <h1>Pokemon Bazaar</h1>
   </div>
   <hr>
-  <h2>Cards</h2>
-    <h2>Pokemon Name: <%=@pokemon_name%></h2>
-    <h3>Pokedex #: <%= @pokemon_num %></h3>
-    <h3>Image: <%= image_tag @pokemon_img %></h3>
+  <div class="card_display_ID">
+    <h2>Cards</h2>
+      <h2><em>Pokemon Name:</em> <%=@pokemon_name%></h2>
+      <h3>Pokedex #: <%= @pokemon_num %></h3>
+      <h3><strong>Image:</strong></h3>
+      <h3><%= image_tag @pokemon_img %></h3>
+  </div>
 
    <% @products.each do |product| %>
     <p><%= product.name %> | <%= number_to_currency product.price %></p>
@@ -18,6 +21,6 @@
     <% end %></p>
   <% end %>
 
-  <p><%= link_to "Add a new product", new_product_path %></p>
+  <p><%= link_to "Add a new card", new_product_path %></p>
 
 </div>
