@@ -3,7 +3,10 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @order_item = current_order.order_items.new
-    @pokemon = Pokemonapi.get_pokemon()
+    @pokemon_name = Pokemonapi.get_pokemon_name()
+    @pokemon_num = Pokemonapi.get_pokemon_number()
+    @pokemon_img = Pokemonapi.get_pokemon_image()
+
   end
 
   def show
