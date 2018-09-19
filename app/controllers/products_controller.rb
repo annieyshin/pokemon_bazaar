@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
     @pokemon_name = Pokemonapi.get_pokemon_name()
     @pokemon_num = Pokemonapi.get_pokemon_number()
     @pokemon_img = Pokemonapi.get_pokemon_image()
-
   end
 
   def show
@@ -18,6 +17,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    pokemon_image_tag = Pokemonapi.new(@product.image_tag)
+    @product.image_tag = pokemon_image_tag.set_pokemon
+
     if @product.save
       redirect_to products_path
     else
@@ -49,7 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :price)
+    params.require(:product).permit(:name, :price, :image_tag)
   end
 
 end
