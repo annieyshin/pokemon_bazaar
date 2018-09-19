@@ -4,10 +4,10 @@
     <h1>Pokemon Bazaar</h1>
   </div>
   <hr>
-  <h2>Products</h2>
+  <h2>Cards</h2>
     <h2>Pokemon Name: <%=@pokemon_name%></h2>
     <h3>Pokedex #: <%= @pokemon_num %></h3>
-    <h3>Pokedex #: <%= @pokemon_img %></h3>
+    <h3>Image: <%= image_tag @pokemon_img %></h3>
 
    <% @products.each do |product| %>
     <p><%= product.name %> | <%= number_to_currency product.price %></p>
