@@ -21,7 +21,10 @@ class ProductsController < ApplicationController
     @product.image_tag = pokemon_image_tag.set_pokemon
 
     if @product.save
-      redirect_to products_path
+      respond_to do |format|
+        format.html { redirect_to products_path }
+        format.js
+      end
     else
       render :new
     end

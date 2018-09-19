@@ -1,6 +1,6 @@
 <%= render "layouts/errors", :object => @product %>
 
-<%= form_for @product do |f| %>
+<%= form_for @product, remote: true do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <hr>

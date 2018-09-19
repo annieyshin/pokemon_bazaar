@@ -4,25 +4,18 @@
     <h1>Pokemon Bazaar</h1>
   </div>
   <hr>
-  <div class="card_display_ID">
-    <h2>Cards</h2>
-      <h2><em>Pokemon Name:</em> <%=@pokemon_name%></h2>
-      <h3>Pokedex #: <%= @pokemon_num %></h3>
-      <h3><strong>Image:</strong></h3>
-      <h3><%= image_tag @pokemon_img %></h3>
+  <p><%= link_to "Add a new card", new_product_path, id: "ajax_new_card", class: "btn btn-primary", remote: true %></p>
+  <hr>
+  <div class="new_cards">
+     <% @products.each do |product| %>
+      <p><%= product.name %> | <%= number_to_currency product.price %></p>
+      <p><%= image_tag product.image_tag %></p>
+      <%= form_for @order_item do |f| %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.hidden_field :image_tag, value: product.image_tag %>
+        <%= f.number_field :quantity %>
+        <%= f.submit "Add to cart", class: "btn btn-info" %>
+      <% end %></p>
+    <% end %>
   </div>
-
-   <% @products.each do |product| %>
-    <p><%= product.name %> | <%= number_to_currency product.price %></p>
-    <p><%= image_tag product.image_tag %></p>
-    <%= form_for @order_item do |f| %>
-      <%= f.hidden_field :product_id, value: product.id %>
-      <%= f.hidden_field :image_tag, value: product.image_tag %>
-      <%= f.number_field :quantity %>
-      <%= f.submit "Add to cart", class: "btn btn-info" %>
-    <% end %></p>
-  <% end %>
-
-  <p><%= link_to "Add a new card", new_product_path, class: "btn btn-primary" %></p>
-
 </div>
