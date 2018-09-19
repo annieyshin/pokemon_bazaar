@@ -4,6 +4,7 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @item = @order.order_items.new(item_params)
     @order.save
+    binding.pry
     session[:order_id] = @order.id
     redirect_to products_path
   end

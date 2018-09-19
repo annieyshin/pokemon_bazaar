@@ -54,4 +54,5 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :price, :image_tag)
   end
 
+
 end
