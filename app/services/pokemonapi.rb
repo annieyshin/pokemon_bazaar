@@ -1,3 +1,5 @@
+require 'rest-client'
+
 class Pokemonapi
 
   def initialize (pokemon_number)
@@ -5,7 +7,9 @@ class Pokemonapi
   end
 
   def self.get_pokemon
-    response = HTTParty.get('https://api.pokemontcg.io/v1/cards?nationalPokedexNumber=4')
+    response = RestClient.get('https://api.pokemontcg.io/v1/cards?nationalPokedexNumber=4')
+    parse_response = JSON.parse(response)
+    parse_response ["cards"][0]["name"]
   end
 
 end

@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.0'
 
 gem 'jquery-rails'
-
+gem 'rest-client'
 gem 'pivotal_git_scripts'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -49,6 +49,8 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'dotenv-rails'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
