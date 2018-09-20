@@ -1,2 +1,11 @@
-<p><%= product.name %> | <%= number_to_currency product.price %></p>
-<p><%= image_tag product.image_tag %></p>
+<div class="card_product" id="annie<%= @product.id %>">
+  <p><%= product.name %> | <%= number_to_currency product.price %></p>
+  <p><%= image_tag product.image_tag %></p>
+  <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete"}, remote: true, class: "btn btn-danger" %>
+  <%= form_for @order_item do |f| %>
+    <%= f.hidden_field :product_id, value: product.id %>
+    <%= f.hidden_field :image_tag, value: product.image_tag %>
+    <%= f.number_field :quantity %>
+    <%= f.submit "Add to cart", class: "btn btn-info" %>
+  <% end %></p>
+</div>

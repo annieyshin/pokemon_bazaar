@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @order_item = current_order.order_items.new
     pokemon_image_tag = Pokemonapi.new(@product.image_tag)
     @product.image_tag = pokemon_image_tag.set_pokemon
     if @product.save
@@ -48,6 +49,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    @products = Product.all
     respond_to do |format|
       format.html { redirect_to products_path }
       format.js
