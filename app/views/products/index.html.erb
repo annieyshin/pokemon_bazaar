@@ -6,7 +6,7 @@
   <hr>
   <p><%= link_to "Add a new card", new_product_path, id: "ajax_new_card", class: "btn btn-primary", remote: true %></p>
   <hr>
-  <div class="new_cards">
+  <div class="cards" id="new_cards">
      <% @products.each do |product| %>
       <p><%= product.name %> | <%= number_to_currency product.price %></p>
       <p><%= image_tag product.image_tag %></p>
@@ -17,5 +17,9 @@
         <%= f.submit "Add to cart", class: "btn btn-info" %>
       <% end %></p>
     <% end %>
+
+  </div>
+  <div id="append_card">
+    <%= render @new_card %>
   </div>
 </div>

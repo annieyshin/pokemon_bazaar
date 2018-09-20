@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
     @pokemon_name = Pokemonapi.get_pokemon_name()
     @pokemon_num = Pokemonapi.get_pokemon_number()
     @pokemon_img = Pokemonapi.get_pokemon_image()
+    @new_card = Product.last
+
   end
 
   def show
@@ -19,7 +21,6 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     pokemon_image_tag = Pokemonapi.new(@product.image_tag)
     @product.image_tag = pokemon_image_tag.set_pokemon
-
     if @product.save
       respond_to do |format|
         format.html { redirect_to products_path }
@@ -34,7 +35,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-
     if @product.update(product_params)
       redirect_to product_path
     else
@@ -44,7 +44,10 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to products_path
+    respond_to do |format|
+      format.html { redirect_to products_path }
+      format.js
+    end
   end
 
   private
@@ -56,6 +59,5 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :price, :image_tag)
   end
-
 
 end
