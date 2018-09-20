@@ -14,6 +14,10 @@ class ProductsController < ApplicationController
   end
 
   def new
+    respond_to do |format|
+      format.html { redirect_to products_path }
+      format.js
+    end
     @product = Product.new
   end
 
