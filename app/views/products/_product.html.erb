@@ -1,7 +1,10 @@
-
+<div class="card_product" id="annie<%= product.id %>">
   <p><%= product.name %> | <%= number_to_currency product.price %></p>
   <% if product.image_tag != nil %>
     <p><%= image_tag product.image_tag %></p>
   <% end %>
   <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete"}, remote: true, class: "btn btn-danger" %>
      <p><%= link_to "Edit", edit_product_path(product), class: "btn btn-warning", remote: true %></p>
+
+
+</div>
