@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
     @pokemon_name = Pokemonapi.get_pokemon_name()
     @pokemon_num = Pokemonapi.get_pokemon_number()
     @pokemon_img = Pokemonapi.get_pokemon_image()
-    @new_card = Product.last
 
   end
 

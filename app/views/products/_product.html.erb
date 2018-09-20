@@ -1,4 +1,4 @@
-<div class="card_product" id="annie<%= @product.id %>">
+
   <p><%= product.name %> | <%= number_to_currency product.price %></p>
   <p><%= image_tag product.image_tag %></p>
   <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete"}, remote: true, class: "btn btn-danger" %>
@@ -8,4 +8,3 @@
     <%= f.number_field :quantity %>
     <%= f.submit "Add to cart", class: "btn btn-info" %>
   <% end %></p>
-</div>
