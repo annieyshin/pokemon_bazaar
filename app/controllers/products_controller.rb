@@ -32,11 +32,21 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.html { redirect_to product_path }
+      format.js
+    end
   end
 
   def update
     if @product.update(product_params)
-      redirect_to product_path
+      pokemon_image_tag = Pokemonapi.new(@product.image_tag)
+      @product.image_tag = pokemon_image_tag.set_pokemon
+      @product.save
+      respond_to do |format|
+        format.html { redirect_to product_path }
+        format.js
+      end
     else
       render :edit
     end

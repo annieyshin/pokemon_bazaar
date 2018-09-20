@@ -1,0 +1,4 @@
+$('form').remove();
+$('#ajax_new_card').show();
+$('#new_cards').prepend('<%= j render(@product) %>');
+$('#annie<%= @product.id %>').hide();
