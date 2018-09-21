@@ -6,5 +6,11 @@
   <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete"}, remote: true, class: "btn btn-danger" %>
      <p><%= link_to "Edit", edit_product_path(product), class: "btn btn-warning", remote: true %></p>
 
+     <%= form_for @order_item, remote: true do |f| %>
+       <%= f.hidden_field :product_id, value: product.id %>
+       <%= f.hidden_field :image_tag, value: product.image_tag %>
+       <%= f.number_field :quantity %>
+       <%= f.submit "Add to cart", class: "btn btn-info" %>
+     <% end %>
 
 </div>
